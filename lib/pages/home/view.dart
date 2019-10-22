@@ -12,16 +12,16 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         FlatButton(
-          onPressed: () => {
-            Navigator.of(viewService.context).pushNamed("loginPage")
-          },
-          child: Text('登陆'),
+          onPressed: () => Navigator.of(viewService.context).pushNamed("loginPage"),
+          child: Text('登陆', style: TextStyle(fontSize:  18),),
+          textColor: Colors.white,
+          color: Colors.blue,
         ),
         FlatButton(
-          onPressed: () => {
-            Navigator.of(viewService.context).pushNamed("registerPage")
-          },
-          child: Text('注册'),
+          onPressed: () => Navigator.of(viewService.context).pushNamed("registerPage"),
+          child: Text('注册', style: TextStyle(fontSize:  18),),
+          textColor: Colors.white,
+          color: Colors.blue,
         )
       ],
     ),
