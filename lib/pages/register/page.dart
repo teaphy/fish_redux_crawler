@@ -11,12 +11,5 @@ class RegisterPage extends Page<RegisterState, Map<String, dynamic>> {
             initState: initState,
             effect: buildEffect(),
             reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<RegisterState>(
-                adapter: null,
-                slots: <String, Dependent<RegisterState>>{
-                }),
-            middleware: <Middleware<RegisterState>>[
-            ],);
-
+            view: buildView);
 }

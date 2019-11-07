@@ -1,9 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:fish_redux_crawler/pages/home/page.dart';
 import 'package:fish_redux_crawler/pages/login/page.dart';
 import 'package:fish_redux_crawler/pages/register/page.dart';
 import 'package:flutter/material.dart' hide Action;
-import 'package:flutter/material.dart' as prefix0;
 
 void main() => runApp(createApp());
 
@@ -12,7 +10,6 @@ Widget createApp() {
     pages: <String, Page<Object, dynamic>>{
       "loginPage": LoginPage(),
       "registerPage": RegisterPage(),
-      "homePage": HomePage()
     },
     visitor: (String path, Page<Object, dynamic> page) {
       /// AOP
@@ -47,7 +44,7 @@ Widget createApp() {
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: routes.buildPage('homePage',null),
+    home: routes.buildPage('loginPage',null),
     onGenerateRoute: (RouteSettings settings) {
       return MaterialPageRoute<Object>(builder: (BuildContext context) {
         return routes.buildPage(settings.name, settings.arguments);
