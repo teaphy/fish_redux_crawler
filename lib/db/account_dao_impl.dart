@@ -20,8 +20,8 @@ class AccountDaoImpl implements IAccountDao {
         ..write(
             "${AccountProfileAttr.ATTR_ID} INTEGER PRIMARY KEY AUTOINCREMENT,")
         ..write("${AccountProfileAttr.ATTR_NAME} TEXT,")
-        ..write("${AccountProfileAttr.ATTR_MOBILE} TEXT,")
-        ..write("${AccountProfileAttr.ATTR_PASSWORD} TEXT")
+        ..write("${AccountProfileAttr.ATTR_MOBILE} TEXT UNIQUE NOT NULL,")
+        ..write("${AccountProfileAttr.ATTR_PASSWORD} TEXT NOT NULL")
         ..write(")")
         ..toString();
       db.execute(sb.toString());
@@ -30,6 +30,23 @@ class AccountDaoImpl implements IAccountDao {
    var result = await db.insert(_tableAccount, accountProfile.toMap());
 
     return result;
+  }
+
+  @override
+  Future<Map<String, dynamic>> queryByMobile(String mobile) async {
+    var db = await SqlManager.getCurrentDatabase();
+    var result = await db.query(_tableAccount,
+        columns: [AccountProfileAttr.ATTR_ID,
+          AccountProfileAttr.ATTR_NAME,
+          AccountProfileAttr.ATTR_MOBILE,
+          AccountProfileAttr.ATTR_PASSWORD],
+    where: "${AccountProfileAttr.ATTR_MOBILE} = ?",
+    whereArgs: [mobile]);
+
+    if (result.length == 0) {
+      return null;
+    }
+    return result[0];
   }
 
   @override

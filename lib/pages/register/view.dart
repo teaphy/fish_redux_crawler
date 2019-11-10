@@ -19,6 +19,7 @@ Widget buildView(
             children: <Widget>[
               TextField(
                 controller: state.usernameController,
+                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                     labelText: "your name", hintText: "input your name"),
               ),

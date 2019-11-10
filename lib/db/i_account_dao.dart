@@ -4,4 +4,6 @@ abstract class IAccountDao {
   Future<int> insertAccount(AccountProfile accountProfile);
 
   Future<List<Map<String, dynamic>>> queryAll();
+
+  Future<Map<String, dynamic>> queryByMobile(String mobile);
 }

@@ -16,4 +16,10 @@ class AccountProvider{
     }).toList();
     return listResult;
   }
+
+  Future<AccountProfile> queryByMobile(String mobile) async {
+    var result = await  _accountDao.queryByMobile(mobile);
+
+    return result == null? null : AccountProfile.fromMap(result);
+  }
 }

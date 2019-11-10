@@ -21,6 +21,7 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                         horizontal: 48.0,
                       ),
                       child: TextField(
+                        controller: state.usernameController,
                         decoration: InputDecoration(
                             labelText: 'your name',
                             hintText: 'input your name'),
@@ -31,6 +32,7 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                         horizontal: 48.0,
                       ),
                       child: TextField(
+                        controller: state.passwordController,
                         decoration: InputDecoration(
                             labelText: 'your password',
                             hintText: 'input your word'),
@@ -41,7 +43,7 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                         vertical: 8.0,
                       ),
                       child: RaisedButton(
-                        onPressed: () => {},
+                        onPressed: () => dispatch(LoginActionCreator.onLogin()),
                         color: Colors.blue,
                         textColor: Colors.white,
                         child: Text('Login'),

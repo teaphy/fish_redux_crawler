@@ -11,12 +11,6 @@ class LoginPage extends Page<LoginState, Map<String, dynamic>> {
             initState: initState,
             effect: buildEffect(),
             reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<LoginState>(
-                adapter: null,
-                slots: <String, Dependent<LoginState>>{
-                }),
-            middleware: <Middleware<LoginState>>[
-            ],);
+            view: buildView);
 
 }

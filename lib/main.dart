@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:fish_redux_crawler/pages/home/page.dart';
 import 'package:fish_redux_crawler/pages/login/page.dart';
 import 'package:fish_redux_crawler/pages/register/page.dart';
 import 'package:flutter/material.dart' hide Action;
@@ -10,6 +11,7 @@ Widget createApp() {
     pages: <String, Page<Object, dynamic>>{
       "loginPage": LoginPage(),
       "registerPage": RegisterPage(),
+      "homePage": HomePage()
     },
     visitor: (String path, Page<Object, dynamic> page) {
       /// AOP
