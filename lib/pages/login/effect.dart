@@ -25,6 +25,6 @@ void _onLogin(Action action, Context<LoginState> ctx) async {
   } else {
     Fluttertoast.showToast(msg: "登录成功");
     // go to HomePage
-    Navigator.of(ctx.context).pushNamed("homePage");
+    Navigator.of(ctx.context).popAndPushNamed("homePage");
   }
 }
